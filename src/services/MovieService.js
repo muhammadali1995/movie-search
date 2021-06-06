@@ -13,3 +13,9 @@ export const SearchMovies = (searchText) => {
     params: { language: "en-US", query: searchText, adult: false },
   });
 };
+
+export const DiscoverMovies = (sortFilter) => {
+  return axios.get(`${apiUrl}/discover/movie`, {
+    params: { sort_by: sortFilter, adult: false },
+  });
+};

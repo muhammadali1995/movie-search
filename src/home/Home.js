@@ -2,7 +2,7 @@ import { Header } from "./Header";
 import { SearchMovie } from "./../movie/Search";
 import { SortBar } from "../movie/SortBar";
 import { useEffect, useState } from "react";
-import { GetPopular, SearchMovies } from "../services/MovieService";
+import { DiscoverMovies, GetPopular, SearchMovies } from "../services/MovieService";
 import { Error } from "../utils/Error";
 import { MovieList } from "../movie/List";
 
@@ -32,14 +32,20 @@ export const Home = () => {
 
     try {
       const response = await SearchMovies(searchText);
-      console.log(response);
       setMovies(response.data.results);
     } catch (e) {
       setError(e.response.data.status_message);
     }
   };
 
-  const onSort = (value) => {};
+  const onSort = async (value) => {
+    try {
+      const response = await DiscoverMovies(value);
+      setMovies(response.data.results);
+    } catch (e) {
+      setError(e.response.data.status_message);
+    }
+  };
 
   return (
     <>
