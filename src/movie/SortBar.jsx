@@ -14,9 +14,6 @@ export const SortBar = ({ onSort }) => {
   return (
     <div className="d-flex justify-content-end">
       <div className="card p-2 shadow-lg">
-
-        
-
         <select className="form-control" onChange={onSortValueChange}>
           <option key={0} value={null}>
             Select a sort
