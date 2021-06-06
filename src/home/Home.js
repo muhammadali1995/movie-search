@@ -13,7 +13,7 @@ import { FilterMovies } from "../movie/Filter";
 export const Home = () => {
   const [movies, setMovies] = useState([]);
   const [sortBy, setSortBy] = useState("");
-  const [filterBy, setFilterBy] = useState("");
+  const [setFilterBy] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
