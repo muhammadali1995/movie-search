@@ -9,11 +9,6 @@ export const FilterMovies = ({ onFilter }) => {
     GetMovieGenres().then((res) => setGenres(res.data.genres));
   }, []);
 
-  const onGenreSelected = (e) => {
-    if (!e.target.value) return;
-    onFilter(e.target.value);
-  };
-
   const onFormSubmit = (e) => {
     e.preventDefault();
     onFilter(formValue);

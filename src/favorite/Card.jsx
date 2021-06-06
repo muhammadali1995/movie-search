@@ -1,10 +1,5 @@
-import { AddToFavorites } from "./../services/MovieService";
-export const MovieCard = ({ className, movie }) => {
+export const FavoriteMovieCard = ({ className, movie }) => {
   const posterPath = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-  const onFavoriteClick = () => {
-    AddToFavorites(movie);
-  };
-
   return (
     <div className={className}>
       <div className="card my-2">
@@ -19,13 +14,7 @@ export const MovieCard = ({ className, movie }) => {
             <i>{movie.vote_average}</i>{" "}
           </div>
           <h6 className="card-title">{movie.original_title}</h6>
-          <button
-            className="btn btn-outline-secondary"
-            onClick={onFavoriteClick}
-          >
-            <i className="bi bi-heart p-2 mt-1"></i>
-            Favorite
-          </button>
+          <p className="card-text">{movie.overview}</p>
         </div>
       </div>
     </div>

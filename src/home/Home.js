@@ -1,4 +1,3 @@
-import { Header } from "./Header";
 import { SearchMovie } from "./../movie/Search";
 import { SortBar } from "../movie/SortBar";
 import { useEffect, useState } from "react";
@@ -78,7 +77,6 @@ export const Home = () => {
 
   return (
     <>
-      <Header />
       <div className="container">
         <div className="row">
           <div className="col-10 col-md-6 offset-md-3 my-5">
