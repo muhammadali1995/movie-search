@@ -12,15 +12,17 @@ export const SortBar = ({ onSort }) => {
   ));
 
   return (
-    <div className="d-flex justify-content-end">
-      <div className="card p-2 shadow-lg">
-        <select className="form-control" onChange={onSortValueChange}>
-          <option key={0} value={null}>
-            Select a sort
-          </option>
-          {options}
-        </select>
-      </div>
+    <div className="card p-2 shadow-lg">
+      <select
+        className="form-control"
+        onChange={onSortValueChange}
+        defaultValue={null}
+      >
+        <option key={0} value={null}>
+          Select a sort
+        </option>
+        {options}
+      </select>
     </div>
   );
 };

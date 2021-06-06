@@ -14,8 +14,18 @@ export const SearchMovies = (searchText) => {
   });
 };
 
-export const DiscoverMovies = (sortFilter) => {
+export const DiscoverMovies = (sortby = null, filterby = null) => {
+  let queryParams = { adult: false };
+
+  if (sortby) queryParams["sort_by"] = sortby;
+  
+  if (filterby) queryParams["with_genres"] = filterby;
+
   return axios.get(`${apiUrl}/discover/movie`, {
-    params: { sort_by: sortFilter, adult: false },
+    params: queryParams,
   });
+};
+
+export const GetMovieGenres = () => {
+  return axios.get(`${apiUrl}/genre/movie/list`);
 };
