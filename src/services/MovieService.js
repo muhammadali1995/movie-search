@@ -18,9 +18,13 @@ export const DiscoverMovies = (sortby = null, filterby = null) => {
   let queryParams = { adult: false };
 
   if (sortby) queryParams["sort_by"] = sortby;
-  
-  if (filterby) queryParams["with_genres"] = filterby;
 
+  if (filterby && filterby["with_genres"]) queryParams["with_genres"] = filterby['with_genres'];
+  if (filterby && filterby["release_date.lte"]) queryParams["release_date.lte"] = filterby['release_date.lte'];
+  if (filterby && filterby["release_date.gte"]) queryParams["release_date.gte"] = filterby['release_date.gte'];
+
+  console.log(filterby);
+  
   return axios.get(`${apiUrl}/discover/movie`, {
     params: queryParams,
   });

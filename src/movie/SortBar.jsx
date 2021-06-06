@@ -12,7 +12,7 @@ export const SortBar = ({ onSort }) => {
   ));
 
   return (
-    <div className="card p-2 shadow-lg">
+    <div className="mb-3 p-2">
       <select
         className="form-control"
         onChange={onSortValueChange}

@@ -57,6 +57,7 @@ export const Home = () => {
       const response = await DiscoverMovies(sortBy);
       setMovies(response.data.results);
     } catch (e) {
+      console.log(e);
       setError(e.data.status_message);
     }
   };
@@ -67,7 +68,6 @@ export const Home = () => {
       return;
     }
     setFilterBy(filterBy);
-
     try {
       const response = await DiscoverMovies(sortBy, filterBy);
       setMovies(response.data.results);
@@ -84,16 +84,18 @@ export const Home = () => {
           <div className="col-10 col-md-6 offset-md-3 my-5">
             <SearchMovie onSearch={onSearch} />
           </div>
-
-          <div className="col-12 col-md-6 offset-md-6 sort-bar">
-            <div className="d-flex">
-              <FilterMovies onFilter={onFiler} />
-              <SortBar onSort={onSort} />
+          {error ? <Error message={error} /> : ""}
+          <div className="row">
+            <div className="col-12 col-md-3 sort-bar">
+              <div className="card shadow-lg p-2">
+                <SortBar onSort={onSort} />
+                <FilterMovies onFilter={onFiler} />
+              </div>
+            </div>
+            <div className="col-12 col-md-9">
+              <MovieList movies={movies} />
             </div>
           </div>
-
-          {error ? <Error message={error} /> : ""}
-          <MovieList movies={movies} />
         </div>
       </div>
     </>
