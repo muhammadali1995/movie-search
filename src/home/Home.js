@@ -18,10 +18,9 @@ export const Home = () => {
 
   useEffect(() => {
     loadPopularMovies();
-  }, [loadPopularMovies]);
+  }, []);
 
   const loadPopularMovies = async () => {
-    console.log(filterBy);
     try {
       const response = await GetPopular();
       setMovies(response.data.results);
@@ -34,6 +33,7 @@ export const Home = () => {
     //if the input is empty then set movie list to popular movies otherwise search
     if (!searchText.trim()) {
       loadPopularMovies();
+      console.log(filterBy);
       return;
     }
 
