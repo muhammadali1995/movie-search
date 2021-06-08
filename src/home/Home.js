@@ -18,7 +18,7 @@ export const Home = () => {
 
   useEffect(() => {
     loadPopularMovies();
-  }, []);
+  }, [loadPopularMovies]);
 
   const loadPopularMovies = async () => {
     console.log(filterBy);
