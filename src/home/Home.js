@@ -18,10 +18,10 @@ export const Home = () => {
 
   useEffect(() => {
     loadPopularMovies();
-    console.log(filterBy);
   }, []);
 
   const loadPopularMovies = async () => {
+    console.log(filterBy);
     try {
       const response = await GetPopular();
       setMovies(response.data.results);
