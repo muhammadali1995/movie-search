@@ -18,6 +18,7 @@ export const Home = () => {
 
   useEffect(() => {
     loadPopularMovies();
+    console.log(filterBy);
   }, []);
 
   const loadPopularMovies = async () => {
@@ -56,12 +57,11 @@ export const Home = () => {
       const response = await DiscoverMovies(sortBy);
       setMovies(response.data.results);
     } catch (e) {
-      console.log(e);
       setError(e.data.status_message);
     }
   };
 
-  const onFiler = async (filterBy) => {
+  const onFilter = async (filterBy) => {
     if (!filterBy) {
       loadPopularMovies();
       return;
@@ -87,7 +87,7 @@ export const Home = () => {
             <div className="col-12 col-md-3 sort-bar">
               <div className="card shadow-lg p-2">
                 <SortBar onSort={onSort} />
-                <FilterMovies onFilter={onFiler} />
+                <FilterMovies onFilter={onFilter} />
               </div>
             </div>
             <div className="col-12 col-md-9">
